@@ -69,7 +69,7 @@ for letter in range(0, len(chosen_word)):
 #     Join all the elements in the list and turn it into a String.
 #     Check if user has got all letters.
 game_over = False
-from Stages import stages
+from Hangman.Stages import stages
 lives = 6
 # Step 4
 

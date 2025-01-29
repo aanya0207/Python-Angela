@@ -45,45 +45,46 @@ def compare(u,c):
 
 
 
+def play_game():
+    user_card = []
+    comp_card = []
+    curr_comp_score =-1
+    
+    for i in range(2):
+        new_card = deal_card()
+        user_card.append(new_card)
+        comp_card.append(new_card)
 
-user_card = []
-comp_card = []
-curr_comp_score =-1
-
-print_logo()
-for i in range(2):
-    new_card = deal_card()
-    user_card.append(new_card)
-    comp_card.append(new_card)
-
-is_game_over = False
-curr_score = calculate_score(user_card)
-curr_comp_score = calculate_score(comp_card)
-print(f"Your cards: {user_card} , current score: {curr_score}")
-print(f"Computer's first card: {comp_card[0]}")
-
-while not is_game_over:
-    if curr_score == 0 or curr_comp_score == 0 or curr_score>21:
-        is_game_over = True
-    else:
-        user_should_deal = input("Type 'y' to get another card, type 'n' to pass:")
-        if user_should_deal == 'y':
-            user_card.append(deal_card())
-            curr_score = calculate_score(user_card)
-            print(f"Your cards: {user_card} , current score: {curr_score}")
-            print(f"Computer's first card: {comp_card[0]}")
-        else:
-            is_game_over = True
-            curr_score = calculate_score(user_card)
-            curr_comp_score = calculate_score(comp_card)
-        
-while curr_comp_score !=0 and curr_comp_score<17:
-    comp_card.append(deal_card())
+    is_game_over = False
+    curr_score = calculate_score(user_card)
     curr_comp_score = calculate_score(comp_card)
+    print(f"Your cards: {user_card} , current score: {curr_score}")
+    print(f"Computer's first card: {comp_card[0]}")
+
+    while not is_game_over:
+        if curr_score == 0 or curr_comp_score == 0 or curr_score>21:
+            is_game_over = True
+        else:
+            user_should_deal = input("Type 'y' to get another card, type 'n' to pass:")
+            if user_should_deal == 'y':
+                user_card.append(deal_card())
+                curr_score = calculate_score(user_card)
+                print(f"Your cards: {user_card} , current score: {curr_score}")
+                print(f"Computer's first card: {comp_card[0]}")
+            else:
+                is_game_over = True
+                curr_score = calculate_score(user_card)
+                curr_comp_score = calculate_score(comp_card)
             
-print(f"Your cards: {user_card} , current score: {curr_score}")
-print(f"Your cards: {comp_card} , current score: {curr_comp_score}")
-print(compare(curr_score,curr_comp_score))     
+    while curr_comp_score !=0 and curr_comp_score<17:
+        comp_card.append(deal_card())
+        curr_comp_score = calculate_score(comp_card)
+            
+    print(f"Your cards: {user_card} , current score: {curr_score}")
+    print(f"Computer cards: {comp_card} , current score: {curr_comp_score}")
+    print(compare(curr_score,curr_comp_score))     
 
 
-  
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n' ") == 'y':  
+    print_logo()
+    play_game()

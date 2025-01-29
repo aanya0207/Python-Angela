@@ -14,7 +14,7 @@ def find_highest_bidder(bids):
     print(f"The winner is {winner} with a bid of ${max_bid}")
     
     
-logo = '''
+logo = r'''
                          ___________
                          \         /
                           )_______(

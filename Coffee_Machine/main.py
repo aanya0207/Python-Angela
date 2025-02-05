@@ -19,10 +19,7 @@ while is_on:
         money_obj.report()
     else:
         drink = menu_obj.find_drink(choice)
-        """check 
-        if coffee_maker_obj.is_resource_sufficient(drink):
-            payment = money_obj.process_coins()
-            if money_obj.make_payment(payment,):
-                coffee_maker_obj.make_coffee(choice)"""
-            
+        """check """
+        if coffee_maker_obj.is_resource_sufficient(drink) and money_obj.make_payment(drink.cost):
+            coffee_maker_obj.make_coffee(drink)
     
